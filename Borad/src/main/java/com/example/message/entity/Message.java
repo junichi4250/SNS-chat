@@ -1,27 +1,34 @@
 package com.example.message.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.TemporalType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "message")
 public class Message {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
 
-	@Column(nullable = false)
+	@Column(name = "name", nullable = false)
 	private String name;
 
-	@Column(nullable = false)
+	//投稿内容
+	@Column(name = "text", nullable = false)
 	private String text;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(updatable = false)
-	private Date createdAt;
+	//投稿日時
+//	@Temporal(TemporalType.TIMESTAMP)
+//	@Column(updatable = false)
+//	private Date createdAt;
 
+	//Jpa用必須定義
 	protected Message() {
 
 	}
@@ -31,12 +38,23 @@ public class Message {
 		this.text = text;
 	}
 
+//	//投稿前処理
+//	@PrePersist
+//	public void prePersist() {
+//		this.createdAt = new Date();
+//	}
+
+	@Override
+	public String toString() {
+		return "Message:" + id + " name:" + name;
+	}
+
 	public Long getId() {
 		return id;
 	}
 
 	public String getName() {
-		this.name = name;
+		return name;
 	}
 
 	public void setName(String name) {
@@ -50,4 +68,10 @@ public class Message {
 	public void setText(String text) {
 		this.text = text;
 	}
+
+//	public Date getCreatedAt() {
+//		return createdAt;
+//	}
+
+
 }

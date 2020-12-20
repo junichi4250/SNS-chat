@@ -1,5 +1,7 @@
 package com.example.message.form;
 
+import javax.validation.constraints.Size;
+
 public class MessageForm {
 
 	@Size(max = 30)
@@ -21,6 +23,6 @@ public class MessageForm {
 	}
 
 	public void setText(String text) {
-		this.text = text;S
+		this.text = text;
 	}
 }
