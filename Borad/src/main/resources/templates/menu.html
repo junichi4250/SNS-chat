@@ -13,6 +13,24 @@
 </form>
 
 
-<form method="post" th:action="@{/menu}"></form>
+<form method="post" th:action="@{/message}" th:object="${messageForm}">
+
+
+<input type="text" th:field="*{name}">
+<input type="text" th:field="*{text}">
+<input type="submit" value="投稿">
+
+
+
+</form>
+
+<h2>最新の投稿一覧</h2>
+<dl>
+	<th:block th:each="message : ${messages}">
+	<dt>
+		<span th:text="${message.name}">kato</span>
+	</dt>
+	<dd th:text="${message.text}"></dd>
+</dl>
 </body>
 </html>
