@@ -26,4 +26,8 @@ public class MessageService {
 		return repository.save(message);
 	}
 
+	public void deleteById(Long id) {
+		repository.deleteById(id);
+	}
+
 }

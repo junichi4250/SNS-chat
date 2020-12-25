@@ -13,21 +13,20 @@
 
 
 <form method="post" th:action="@{/message}" th:object="${messageForm}">
-
-
 <input type="text" th:field="*{name}">
 <input type="text" th:field="*{text}">
-<input type="submit" value="投稿">
-
-
-
+<input type="submit" name="add" value="投稿">
 </form>
 
 <h2>最新の投稿一覧</h2>
 	<dl>
 		<th:block th:each="message : ${messages}">
 			<dt>
-			<span th:text="${message.name}">kato</span>
+			<form th:action="@{delete}" method="post">
+			ユーザー名：<span th:text="${message.name}"></span>
+			<input type="submit" name="delete" value="削除">
+			<input type="hidden" name="id" th:value="${message.id}">
+			</form>
 			</dt>
 		<dd th:text="${message.text}"></dd>
 	</dl>
