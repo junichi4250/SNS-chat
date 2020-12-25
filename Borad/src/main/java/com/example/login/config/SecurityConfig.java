@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			//認可の設定
 			.authorizeRequests()
 				//「login.html」はログイン不要でアクセス可能に設定
-//				.antMatchers("/login").permitAll()
+				.antMatchers("/login", "/sign_up").permitAll()
 				//上記以外は直リンク禁止
 				.anyRequest().authenticated()
 				.and()

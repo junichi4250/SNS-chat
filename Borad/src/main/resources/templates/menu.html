@@ -5,8 +5,7 @@
 <title>掲示板</title>
 </head>
 <body>
-<p>成功</p>
-<p th:text="${userName}"></p>
+<p>[[${userName}]]さん、ようこそ</p>
 
 <form method="post" th:action="@{/logout}">
 <input type="submit" value="logout">
@@ -25,12 +24,12 @@
 </form>
 
 <h2>最新の投稿一覧</h2>
-<dl>
-	<th:block th:each="message : ${messages}">
-	<dt>
-		<span th:text="${message.name}">kato</span>
-	</dt>
-	<dd th:text="${message.text}"></dd>
-</dl>
+	<dl>
+		<th:block th:each="message : ${messages}">
+			<dt>
+			<span th:text="${message.name}">kato</span>
+			</dt>
+		<dd th:text="${message.text}"></dd>
+	</dl>
 </body>
 </html>

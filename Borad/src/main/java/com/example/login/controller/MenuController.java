@@ -7,8 +7,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.login.entity.NewUserForm;
+import com.example.login.service.UserService;
 import com.example.message.entity.Message;
 import com.example.message.form.MessageForm;
 import com.example.message.service.MessageService;
@@ -18,6 +24,9 @@ public class MenuController {
 
 	@Autowired
 	private MessageService service;
+
+	@Autowired
+	private UserService userService;
 
 	/**
 	 * ログイン成功時に呼び出されるメソッド
@@ -39,5 +48,18 @@ public class MenuController {
 		return "menu";
 	}
 
+	//新規登録画面へ遷移
+	@GetMapping("/sign_up")
+	public String singUp(@ModelAttribute("newUser") NewUserForm newUser) {
+		return "sign_up";
+	}
+
+	@PostMapping("/sign_up")
+	public String userRegister(@ModelAttribute NewUserForm newUser, BindingResult bindingResult) {
+
+
+		userService.create(newUser);
+		return "login";
+	}
 
 }

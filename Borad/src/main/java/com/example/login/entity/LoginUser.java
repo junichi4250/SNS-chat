@@ -13,12 +13,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "user")
 public class LoginUser {
-
-	@Column(name = "user_id")
-	@Id
-	private Long userId;
+//
+//	@Column(name = "user_id")
+//	@Id
+//	private Long userId;
 
 	@Column(name = "username")
+	@Id
 	private String userName;
 
 	@Column(name = "password")
@@ -39,4 +40,5 @@ public class LoginUser {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 }
