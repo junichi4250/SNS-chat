@@ -1,4 +1,3 @@
-  
 version: 2.1
 
 jobs:
@@ -7,4 +6,4 @@ jobs:
       - image: 'circleci/openjdk:8-jdk-stretch'
     steps:
       - checkout
-      - run: ./mvnw clean install
+      - run: ./Board/mvnw clean install
