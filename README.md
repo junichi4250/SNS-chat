@@ -16,3 +16,24 @@
 権限の追加(スーパーユーザー)  
 掲示板の拡張(Topic)を選択できる  
 コーディング
+
+
+
+★Dockerの起動方法
+dockerの立ち上げ
+Borad/上で下記コマンドをたたく
+
+// docker環境ビルド
+docker-compose build
+
+// dockerをバックグラウンドで起動
+docker-compose up -d
+
+// javaコンテナにインスペクション
+docker-compose exec java bash
+
+// mavenビルド
+root@62acca270468:/srv# sh mvnw packag
+
+// アプリケーション実行
+root@62acca270468:/srv# java -jar target/Borad-0.0.1-SNAPSHOT.jar
