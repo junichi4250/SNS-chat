@@ -33,7 +33,7 @@ docker-compose up -d
 docker-compose exec java bash
 
 // mavenビルド
-root@62acca270468:/srv# sh mvnw packag
+root@62acca270468:/srv# sh mvnw package
 
 // アプリケーション実行
 root@62acca270468:/srv# java -jar target/Borad-0.0.1-SNAPSHOT.jar
